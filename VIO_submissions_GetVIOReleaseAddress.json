@@ -1,0 +1,73 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/GetVIOReleaseAddress": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/VIOReleaseAddress"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOReleaseAddress": {
+            "properties": {
+                "submissionId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "labName": {
+                    "type": "string",
+                    "description": ""
+                },
+                "address": {
+                    "type": "string",
+                    "description": ""
+                },
+                "phoneFax": {
+                    "type": "string",
+                    "description": ""
+                },
+                "generalMailboxEmail": {
+                    "type": "string",
+                    "description": ""
+                },
+                "signature": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        },
+    }
+}

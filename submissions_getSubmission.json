@@ -1,0 +1,512 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/submissions/getSubmission": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "pvsId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Submission"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Submission": {
+            "properties": {
+                "animalSpecies": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalBreed": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalSex": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalAge": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalOrganic": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalPurpose": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalHousing": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clinicalSign1": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clinicalSign2": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clinicalSign3": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clinicalSignDuration": {
+                    "type": "string",
+                    "description": ""
+                },
+                "status": {
+                    "type": "string",
+                    "description": ""
+                },
+                "isDigital": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "vioHasChanged": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "vioChangeReason": {
+                    "type": "string",
+                    "description": ""
+                },
+                "submissionId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "draftSubmissionId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "submissionType": {
+                    "type": "string",
+                    "description": ""
+                },
+                "pvsId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clientName": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clientFarm": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clientAddress": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clientPostcode": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clientCounty": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clientSubCounty": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clientCPHH": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clinician": {
+                    "type": "string",
+                    "description": ""
+                },
+                "resultsReadyConfirmationEmail": {
+                    "type": "string",
+                    "description": ""
+                },
+                "resultsReadyConfirmationPhoneNumber": {
+                    "type": "string",
+                    "description": ""
+                },
+                "areAnimalsAtFarmAddress": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "animalCPHH": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalFarm": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalAddress": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalPostcode": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalCounty": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalSubCounty": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalSpeciesId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalBreedId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SubmissionAnimal"
+                    },
+                    "description": ""
+                },
+                "animalSexId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalAgeId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalOrganicId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalPurposeId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "animalHousingId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "dateSamplesTaken": {
+                    "type": "string",
+                    "description": ""
+                },
+                "previousSubmissionId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "previousSubmissionContactByPhone": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "previousSubmissionContactByAphaFarmVisit": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "herdTotal": {
+                    "type": "string",
+                    "description": ""
+                },
+                "herdBreedingTotal": {
+                    "type": "string",
+                    "description": ""
+                },
+                "herdAffectedTotal": {
+                    "type": "string",
+                    "description": ""
+                },
+                "herdAffectedIncDead": {
+                    "type": "string",
+                    "description": ""
+                },
+                "herdDeadTotal": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clinicalSign1Id": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clinicalSign2Id": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clinicalSign3Id": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clinicalSignDurationId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "clinicalHistory": {
+                    "type": "string",
+                    "description": ""
+                },
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SubmissionProduct"
+                    },
+                    "description": ""
+                },
+                "samplesWillSendToSeparateAddresses": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "canUseSurveillance": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "submittedDate": {
+                    "type": "string",
+                    "description": ""
+                },
+                "submittedUser": {
+                    "type": "string",
+                    "description": ""
+                },
+                "validationErrors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": ""
+                },
+                "errorMessages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": ""
+                },
+                "lastUpdatedDateTime": {
+                    "type": "string",
+                    "description": ""
+                },
+                "unusualCase": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "animalAddressLatLng": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        },
+        "SubmissionAnimal": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": ""
+                },
+                "name": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        },
+        "SubmissionProduct": {
+            "properties": {
+                "productId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "productType": {
+                    "type": "string",
+                    "description": ""
+                },
+                "sampleType": {
+                    "type": "string",
+                    "description": ""
+                },
+                "options": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProductOption"
+                    },
+                    "description": ""
+                },
+                "optionsType": {
+                    "type": "string",
+                    "description": "Gets or sets the option Type for this Product"
+                },
+                "minOptions": {
+                    "type": "number",
+                    "description": "Gets or sets the min number of options for this Product"
+                },
+                "maxOptions": {
+                    "type": "number",
+                    "description": "Gets or sets the max number of options for this Product"
+                },
+                "animalSamples": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SubmissionSample"
+                    },
+                    "description": ""
+                },
+                "sampleTypeDeliveryAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SampleTypeDeliveryAddress"
+                    },
+                    "description": ""
+                },
+                "dueDate": {
+                    "type": "string",
+                    "description": ""
+                },
+                "sampleTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SubmissionProductSampleType"
+                    },
+                    "description": ""
+                },
+                "name": {
+                    "type": "string",
+                    "description": ""
+                },
+                "price": {
+                    "type": "number",
+                    "description": ""
+                },
+                "packageCode": {
+                    "type": "string",
+                    "description": "Gets or sets the package code (if applicable)"
+                },
+                "maximumTurnaround": {
+                    "type": "number",
+                    "description": "Gets or sets the maximum turnaround time in days"
+                },
+                "averageTurnaround": {
+                    "type": "number",
+                    "description": "Gets or sets the recent average turnaround time in days as reported by SMS"
+                }
+            }
+        },
+        "ProductOption": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Gets the Product Option id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Gets the Product Option name"
+                }
+            }
+        },
+        "SubmissionSample": {
+            "properties": {
+                "animalId": {
+                    "type": "string",
+                    "description": "Gets the animal Id"
+                },
+                "animalName": {
+                    "type": "string",
+                    "description": "Gets the animal name"
+                },
+                "sampleId": {
+                    "type": "string",
+                    "description": "Gets the sample Id"
+                },
+                "poolGroup": {
+                    "type": "string",
+                    "description": "Gets the optional pool group"
+                },
+                "sampleType": {
+                    "type": "string",
+                    "description": "Gets the optional sample type"
+                }
+            }
+        },
+        "SampleTypeDeliveryAddress": {
+            "properties": {
+                "sampleType": {
+                    "type": "string",
+                    "description": ""
+                },
+                "deliveryAddress": {
+                    "$ref": "#/definitions/DeliveryAddress",
+                    "description": ""
+                }
+            }
+        },
+        "DeliveryAddress": {
+            "properties": {
+                "address1": {
+                    "type": "string",
+                    "description": "Gets or sets the first line of the address"
+                },
+                "address2": {
+                    "type": "string",
+                    "description": "Gets or sets the second line of the address"
+                },
+                "address3": {
+                    "type": "string",
+                    "description": "Gets or sets the third line of the address"
+                },
+                "labEmail": {
+                    "type": "string",
+                    "description": "Gets or sets the lab email address"
+                },
+                "labId": {
+                    "type": "string",
+                    "description": "Gets or sets the lab Id"
+                }
+            }
+        },
+        "SubmissionProductSampleType": {
+            "properties": {
+                "selected": {
+                    "type": "boolean",
+                    "description": "Gets the Selected for this submission product sample type"
+                }
+            }
+        },
+    }
+}

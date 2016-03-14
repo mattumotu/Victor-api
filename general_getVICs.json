@@ -1,0 +1,65 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/general/getVICs": {
+            "get": {
+                "summary": "Gets a collection of VIC from LIMS",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "a collection of VIC",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/VIC"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIC": {
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Gets the VICs code"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Gets the VICs name"
+                },
+                "address": {
+                    "type": "string",
+                    "description": "Gets the VICs address"
+                },
+                "phoneFax": {
+                    "type": "string",
+                    "description": "Gets the VICs phone and fax details"
+                },
+                "generalMailboxEmail": {
+                    "type": "string",
+                    "description": "Gets the VICs general mailbox email address"
+                }
+            }
+        },
+    }
+}

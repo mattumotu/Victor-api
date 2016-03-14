@@ -1,0 +1,374 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/submissions/getLatestReleasedResults": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "pvsId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ResultSet"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ResultSet": {
+            "properties": {
+                "SubmissionComments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ResultSetSubmissionComment"
+                    },
+                    "description": "Gets the submission comments"
+                },
+                "Sections": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ResultSetSection"
+                    },
+                    "description": "Gets the result set sections"
+                },
+                "SampleComments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ResultSetSampleComment"
+                    },
+                    "description": "Gets the sample comments"
+                },
+                "HasAccreditation": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether this result set has accreditation"
+                },
+                "SubmissionHeader": {
+                    "type": "string",
+                    "description": "Gets the submission header"
+                },
+                "VioComment": {
+                    "type": "string",
+                    "description": "Gets the VIO Comment"
+                },
+                "SubmissionFooter": {
+                    "type": "string",
+                    "description": "Gets the Submission footer"
+                },
+                "Charges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/VIOSubmissionCharge"
+                    },
+                    "description": "Gets the Submission Charges"
+                },
+                "WorkInProgress": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/VIOSubmissionWorkInProgress"
+                    },
+                    "description": "Gets tests that are still work in progress"
+                },
+                "OwningVicCode": {
+                    "type": "string",
+                    "description": "Gets the Owning VIC Code"
+                },
+                "OwningVicName": {
+                    "type": "string",
+                    "description": "Gets the Owning VIC Name"
+                },
+                "OwningVicAddress": {
+                    "type": "string",
+                    "description": "Gets the Owning VIC Address"
+                },
+                "OwningVicPhoneFax": {
+                    "type": "string",
+                    "description": "Gets the Owning VIC Phone and fax details"
+                },
+                "OwningVicGeneralMailboxEmail": {
+                    "type": "string",
+                    "description": "Gets the Owning VIC General Mailbox Email"
+                }
+            }
+        },
+        "ResultSetSubmissionComment": {
+            "properties": {
+                "CommentId": {
+                    "type": "string",
+                    "description": "Gets the id of the comment"
+                },
+                "Comment": {
+                    "type": "string",
+                    "description": "Gets the Contents of the comment"
+                }
+            }
+        },
+        "ResultSetSection": {
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "description": "Gets the name of the section"
+                },
+                "Type": {
+                    "type": "string",
+                    "description": "Gets the type of section e.g. Generic, Salmonella, etc."
+                },
+                "SortOrder": {
+                    "type": "number",
+                    "description": "Gets the display order sort value"
+                },
+                "TableSplit": {
+                    "type": "string",
+                    "description": "Gets the table split value"
+                },
+                "SubSections": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ResultSetSubSection"
+                    },
+                    "description": "Gets the sub sections"
+                },
+                "Isolates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ResultSetIsolate"
+                    },
+                    "description": "Gets the isolates"
+                },
+                "Comments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ResultSetSectionComment"
+                    },
+                    "description": "Gets or sets the comments"
+                },
+                "Footnotes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ResultSetSectionFootnote"
+                    },
+                    "description": "Gets or sets the section footnotes"
+                }
+            }
+        },
+        "ResultSetSubSection": {
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "description": "Gets the Name of the sub section"
+                },
+                "Type": {
+                    "type": "string",
+                    "description": "Gets the Type of sub section e.g. Standard, Text, Pivot, Sensitivity"
+                },
+                "SortOrder": {
+                    "type": "number",
+                    "description": "Gets the display order sort value"
+                },
+                "Results": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ResultSetSampleTestResult"
+                    },
+                    "description": "Gets the results"
+                }
+            }
+        },
+        "ResultSetSampleTestResult": {
+            "properties": {
+                "TestNumber": {
+                    "type": "number",
+                    "description": "Gets the Id that uniquely identifies the sample / test combination"
+                },
+                "ComponentName": {
+                    "type": "string",
+                    "description": "Gets the Name of the test component for which a result is being returned"
+                },
+                "SampleName": {
+                    "type": "string",
+                    "description": "Gets the Name of the sample to which the result applies"
+                },
+                "TestName": {
+                    "type": "string",
+                    "description": "Gets the Name of the test that produced the result"
+                },
+                "TestCode": {
+                    "type": "string",
+                    "description": "Gets the Code of the test that produced the result"
+                },
+                "Result": {
+                    "type": "string",
+                    "description": "Gets the Details of the result"
+                },
+                "Amended": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether the result has been amended since being released"
+                },
+                "SortOrder": {
+                    "type": "number",
+                    "description": "Gets the Order in which the result should be displayed"
+                }
+            }
+        },
+        "ResultSetIsolate": {
+            "properties": {
+                "Reference": {
+                    "type": "string",
+                    "description": "Gets the isolate's reference"
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "Gets the isolate's name"
+                },
+                "SampleReference": {
+                    "type": "string",
+                    "description": "Gets the sample reference"
+                },
+                "Site": {
+                    "type": "string",
+                    "description": "Gets the Site"
+                },
+                "Species": {
+                    "type": "string",
+                    "description": "Gets the Species"
+                },
+                "Footnote": {
+                    "type": "string",
+                    "description": "Gets the Footnote"
+                }
+            }
+        },
+        "ResultSetSectionComment": {
+            "properties": {
+                "SampleReference": {
+                    "type": "string",
+                    "description": "Gets or sets the sample reference"
+                },
+                "Comment": {
+                    "type": "string",
+                    "description": "Gets or sets the Comment"
+                },
+                "TestNumber": {
+                    "type": "string",
+                    "description": "Gets or sets the Test Number"
+                },
+                "SampleRefSortOrder": {
+                    "type": "string",
+                    "description": "Gets or sets the sort order for sample reference"
+                },
+                "TestNumberSortOrder": {
+                    "type": "string",
+                    "description": "Gets or sets the sort order for test number"
+                }
+            }
+        },
+        "ResultSetSectionFootnote": {
+            "properties": {
+                "Footnote": {
+                    "type": "string",
+                    "description": "Gets or sets the footnote text"
+                },
+                "TestNumbers": {
+                    "type": "string",
+                    "description": "Gets or sets the Test numbers for which the footnote applies"
+                },
+                "TestSortOrder": {
+                    "type": "number",
+                    "description": "Gets or sets the Order in which the footnotes should be displayed (By test)"
+                },
+                "ExtraSortOrder": {
+                    "type": "number",
+                    "description": "Gets or sets the order in which the footnotes should be displayed (By priority)"
+                }
+            }
+        },
+        "ResultSetSampleComment": {
+            "properties": {
+                "SampleReference": {
+                    "type": "string",
+                    "description": "Gets the Reference of the sample to which the comments apply"
+                },
+                "CommentId": {
+                    "type": "string",
+                    "description": "Gets the id of the comment"
+                },
+                "Comment": {
+                    "type": "string",
+                    "description": "Gets the Contents of the comment"
+                },
+                "SampleRefOrder": {
+                    "type": "string",
+                    "description": "Gets the Order in which the comment should be displayed"
+                }
+            }
+        },
+        "VIOSubmissionCharge": {
+            "properties": {
+                "ServiceName": {
+                    "type": "string",
+                    "description": "Gets the Service Name"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "description": "Gets the unit price"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "description": "Gets the quantity"
+                },
+                "TotalCost": {
+                    "type": "number",
+                    "description": "Gets the total cost"
+                }
+            }
+        },
+        "VIOSubmissionWorkInProgress": {
+            "properties": {
+                "TestCode": {
+                    "type": "string",
+                    "description": "Gets the test code"
+                },
+                "Description": {
+                    "type": "string",
+                    "description": "Gets the description"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "description": "Gets the quantity"
+                }
+            }
+        },
+    }
+}

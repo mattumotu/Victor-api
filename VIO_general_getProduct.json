@@ -1,0 +1,103 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/general/getProduct": {
+            "get": {
+                "summary": "Gets a single VIO Product for specified product id and submission Id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "productId",
+                        "description": "the product id",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "the submission id (used for calculating default contract)",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/VIOProduct"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOProduct": {
+            "properties": {
+                "ProductId": {
+                    "type": "string",
+                    "description": "Gets the Product Id; A Package Code or Test Code."
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "Gets the Products Name"
+                },
+                "Type": {
+                    "type": "string",
+                    "description": "Gets the Type. e.g. Package / Test"
+                },
+                "DefaultContract": {
+                    "type": "string",
+                    "description": "Gets the Default Contract"
+                },
+                "OptionsType": {
+                    "type": "string",
+                    "description": "Gets the option Type for this Product"
+                },
+                "MinOptions": {
+                    "type": "number",
+                    "description": "Gets the min number of options for this Product"
+                },
+                "MaxOptions": {
+                    "type": "number",
+                    "description": "Gets the max number of options for this Product"
+                },
+                "Options": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/VIOProductOption"
+                    },
+                    "description": "Gets the options for this Product"
+                }
+            }
+        },
+        "VIOProductOption": {
+            "properties": {
+                "optionId": {
+                    "type": "string",
+                    "description": "Gets the Product Option id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Gets the Product Option name"
+                }
+            }
+        },
+    }
+}

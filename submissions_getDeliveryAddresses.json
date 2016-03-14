@@ -1,0 +1,130 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/submissions/getDeliveryAddresses": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "pvsId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "draftSubmissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/DeliveryAddressList"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "DeliveryAddressList": {
+            "properties": {
+                "separateAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AddressTestCombo"
+                    },
+                    "description": "Gets a list of addresses for the submission"
+                },
+                "singleAddress": {
+                    "$ref": "#/definitions/AddressTestCombo",
+                    "description": "Gets a single address for the submission"
+                }
+            }
+        },
+        "AddressTestCombo": {
+            "properties": {
+                "tests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SubmittedTest"
+                    },
+                    "description": "Gets the tests"
+                },
+                "address": {
+                    "$ref": "#/definitions/DeliveryAddress",
+                    "description": "Gets the address"
+                }
+            }
+        },
+        "SubmittedTest": {
+            "properties": {
+                "testId": {
+                    "type": "string",
+                    "description": "Gets the test id"
+                },
+                "sampleType": {
+                    "type": "string",
+                    "description": "Gets the sample type"
+                },
+                "sampleId": {
+                    "type": "string",
+                    "description": "Gets the sample id"
+                },
+                "animalId": {
+                    "type": "string",
+                    "description": "Gets the animal id"
+                },
+                "turnaroundDelay": {
+                    "type": "number",
+                    "description": "Gets the turnaround delay"
+                }
+            }
+        },
+        "DeliveryAddress": {
+            "properties": {
+                "address1": {
+                    "type": "string",
+                    "description": "Gets or sets the first line of the address"
+                },
+                "address2": {
+                    "type": "string",
+                    "description": "Gets or sets the second line of the address"
+                },
+                "address3": {
+                    "type": "string",
+                    "description": "Gets or sets the third line of the address"
+                },
+                "labEmail": {
+                    "type": "string",
+                    "description": "Gets or sets the lab email address"
+                },
+                "labId": {
+                    "type": "string",
+                    "description": "Gets or sets the lab Id"
+                }
+            }
+        },
+    }
+}

@@ -1,0 +1,81 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/general/getProductSummaries": {
+            "get": {
+                "summary": "Gets a collection of VIOProductSummary optionally filtered",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "filter",
+                        "description": "optional filter text",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "species",
+                        "description": "optional filter species",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "tests",
+                        "description": "optional csv list of test codes",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "optional submissionId",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "a collection of Product",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/VIOProductSummary"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOProductSummary": {
+            "properties": {
+                "ProductId": {
+                    "type": "string",
+                    "description": "Gets the product id"
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "Gets the product name"
+                }
+            }
+        },
+    }
+}

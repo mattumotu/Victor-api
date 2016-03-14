@@ -1,0 +1,93 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/general/getPVS": {
+            "get": {
+                "summary": "Returns details of a PVS from LIMS",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "pvsId",
+                        "description": "Id of the PVS to return",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "a PVS",
+                        "schema": {
+                            "$ref": "#/definitions/PVS"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "PVS": {
+            "properties": {
+                "pvsId": {
+                    "type": "string",
+                    "description": "Gets the PVS id"
+                },
+                "pvsName": {
+                    "type": "string",
+                    "description": "Gets the PVS name"
+                },
+                "pvsAddress1": {
+                    "type": "string",
+                    "description": "Gets the PVS address line 1"
+                },
+                "pvsAddress2": {
+                    "type": "string",
+                    "description": "Gets the PVS address line 2"
+                },
+                "pvsAddress3": {
+                    "type": "string",
+                    "description": "Gets the PVS address line 3"
+                },
+                "pvsAddress4": {
+                    "type": "string",
+                    "description": "Gets the PVS address line 4"
+                },
+                "pvsPostcode": {
+                    "type": "string",
+                    "description": "Gets the PVS post code"
+                },
+                "pvsEmail": {
+                    "type": "string",
+                    "description": "Gets the PVS email address"
+                },
+                "pvsFax": {
+                    "type": "string",
+                    "description": "Gets the PVS fax number"
+                },
+                "pvsIsVetimPressMember": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether the PVS is a VetimPress member"
+                },
+                "pvsVetimPressEmail": {
+                    "type": "string",
+                    "description": "Gets the PVS VetimPress email address"
+                }
+            }
+        },
+    }
+}

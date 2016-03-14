@@ -1,0 +1,88 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/GetServiceRequests": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/VIOServiceRequest"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOServiceRequest": {
+            "properties": {
+                "TestCode": {
+                    "type": "string",
+                    "description": "Gets the test code"
+                },
+                "Package": {
+                    "type": "string",
+                    "description": "Gets the package"
+                },
+                "Contract": {
+                    "type": "string",
+                    "description": "Gets the contract"
+                },
+                "SampleType": {
+                    "type": "string",
+                    "description": "Gets the sample type"
+                },
+                "Location": {
+                    "type": "string",
+                    "description": "Gets the location"
+                },
+                "NoRequired": {
+                    "type": "number",
+                    "description": "Gets the number required"
+                },
+                "Unit": {
+                    "type": "number",
+                    "description": "Gets the unit"
+                },
+                "Fee": {
+                    "type": "number",
+                    "description": "Gets the fee"
+                },
+                "TestDescription": {
+                    "type": "string",
+                    "description": "Gets the test description"
+                }
+            }
+        },
+    }
+}

@@ -1,0 +1,100 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/general/getVIDACode": {
+            "get": {
+                "summary": "Gets a collection of VIDACodes from LIMS optionally filtered.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "species",
+                        "description": "Optional filter species",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "system",
+                        "description": "Optional filter system",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "diagreached",
+                        "description": "Optional filter diagreached",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "vidacode",
+                        "description": "Optional filter vidacode",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "description",
+                        "description": "Optional filter description",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "a collection of VIDACodes",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/VIDACode"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIDACode": {
+            "properties": {
+                "Code": {
+                    "type": "string",
+                    "description": "Gets the VIDA Code code"
+                },
+                "Description": {
+                    "type": "string",
+                    "description": "Gets the VIDA Code description"
+                },
+                "System": {
+                    "type": "string",
+                    "description": "Gets the VIDA Code system"
+                },
+                "AlternativeDescription": {
+                    "type": "string",
+                    "description": "Gets the VIDA Code alternative description"
+                },
+                "Categorisation": {
+                    "type": "string",
+                    "description": "Gets the VIDA Code categorisation"
+                }
+            }
+        },
+    }
+}

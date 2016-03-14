@@ -1,0 +1,310 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/SetSubmissionDiagnosis": {
+            "post": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "vioSubmission",
+                        "description": "",
+                        "required": True,
+                        "type": "VIOSubmission"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/VIOSubmission"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOSubmission": {
+            "properties": {
+                "SubmissionId": {
+                    "type": "string",
+                    "description": "Gets the Id of the submission"
+                },
+                "Status": {
+                    "type": "string",
+                    "description": "Gets the Status of the submission"
+                },
+                "Submission_Reason": {
+                    "type": "string",
+                    "description": "Gets the Submission reason ID"
+                },
+                "Responsible_Officer": {
+                    "type": "string",
+                    "description": "Gets the Name of the responsible officer"
+                },
+                "VIO_Location": {
+                    "type": "string",
+                    "description": "Gets the location of the VIO"
+                },
+                "RO_Location": {
+                    "type": "string",
+                    "description": "Gets the location of the responsible officer"
+                },
+                "PVS": {
+                    "type": "string",
+                    "description": "Gets the Name of the PVS who sent the submission"
+                },
+                "PvsId": {
+                    "type": "string",
+                    "description": "Gets the The ID of the PVS who sent the submission"
+                },
+                "Clinician": {
+                    "type": "string",
+                    "description": "Gets the Name of the clinician who sent the submission"
+                },
+                "Client_CPH": {
+                    "type": "string",
+                    "description": "Gets the CPH of the client"
+                },
+                "Client_Name": {
+                    "type": "string",
+                    "description": "Gets the Name of the client"
+                },
+                "Client_Farm": {
+                    "type": "string",
+                    "description": "Gets the Name of the client's farm"
+                },
+                "Client_Address": {
+                    "type": "string",
+                    "description": "Gets the Address of the client"
+                },
+                "Animal_CPH": {
+                    "type": "string",
+                    "description": "Gets the CPH where the animal(s) was located"
+                },
+                "Animal_Farm": {
+                    "type": "string",
+                    "description": "Gets the Name of the farm on which the animal(s) was located"
+                },
+                "Animal_Address": {
+                    "type": "string",
+                    "description": "Gets the Address where the animal(s) were located"
+                },
+                "Animal_Species": {
+                    "type": "string",
+                    "description": "Gets the Species of the animal(s)"
+                },
+                "Animal_Breed": {
+                    "type": "string",
+                    "description": "Gets the Breed of the animal(s)"
+                },
+                "Animal_Sex": {
+                    "type": "string",
+                    "description": "Gets the Sex of the animal(s)"
+                },
+                "Animal_Age": {
+                    "type": "string",
+                    "description": "Gets the Age of the animal(s)"
+                },
+                "Animal_Organic": {
+                    "type": "string",
+                    "description": "Gets the Animal_Organic"
+                },
+                "Animal_Purpose": {
+                    "type": "string",
+                    "description": "Gets the Animal_Purpose"
+                },
+                "Animal_Housing": {
+                    "type": "string",
+                    "description": "Gets the Animal_Housing"
+                },
+                "ClinicalSign_1": {
+                    "type": "string",
+                    "description": "Gets the ClinicalSign_1"
+                },
+                "ClinicalSign_2": {
+                    "type": "string",
+                    "description": "Gets the ClinicalSign_2"
+                },
+                "ClinicalSign_3": {
+                    "type": "string",
+                    "description": "Gets the ClinicalSign_3"
+                },
+                "ClinicalSign_Duration": {
+                    "type": "string",
+                    "description": "Gets the ClinicalSign_Duration"
+                },
+                "Herd_Total": {
+                    "type": "string",
+                    "description": "Gets the Herd_Total"
+                },
+                "Herd_BreedingTotal": {
+                    "type": "string",
+                    "description": "Gets the Herd_BreedingTotal"
+                },
+                "Herd_AffectedTotal": {
+                    "type": "string",
+                    "description": "Gets the Herd_AffectedTotal"
+                },
+                "Herd_AffectedIncDead": {
+                    "type": "string",
+                    "description": "Gets the Herd_Affected Including Dead"
+                },
+                "Herd_DeadTotal": {
+                    "type": "string",
+                    "description": "Gets the Herd_DeadTotal"
+                },
+                "ClinicalSign_History": {
+                    "type": "string",
+                    "description": "Gets the Clinical Sign History"
+                },
+                "ClinicalSign_UnusualCase": {
+                    "type": "string",
+                    "description": "Gets the Clinical Sign Unusual Case"
+                },
+                "ContainmentLevel": {
+                    "type": "string",
+                    "description": "Gets the Containment Level"
+                },
+                "Reporting": {
+                    "type": "string",
+                    "description": "Gets the reporting"
+                },
+                "ReasonForChange": {
+                    "type": "string",
+                    "description": "Gets the reason for change"
+                },
+                "HazardWarning": {
+                    "type": "string",
+                    "description": "Gets the hazard warning"
+                },
+                "ReportableComment": {
+                    "type": "string",
+                    "description": "Gets the reportable comment"
+                },
+                "DateSubmitted": {
+                    "type": "string",
+                    "description": "Gets the Date the submission was submitted"
+                },
+                "DateReceived": {
+                    "type": "string",
+                    "description": "Gets the Date the submission was received"
+                },
+                "IsPortal": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether the Is the submission a portal or postal submission"
+                },
+                "Rep_To_Email": {
+                    "type": "string",
+                    "description": "Gets the Main email address that needs to be notified of results"
+                },
+                "Rep_CC_Email": {
+                    "type": "string",
+                    "description": "Gets the Other email address that needs to be notified of results"
+                },
+                "FinalReportDate": {
+                    "type": "string",
+                    "description": "Gets the Final Report date"
+                },
+                "DiagnosisReached": {
+                    "type": "string",
+                    "description": "Gets the diagnosis reached"
+                },
+                "DNRTesting": {
+                    "type": "string",
+                    "description": "Gets the details of extended DNR testing"
+                },
+                "DNROther": {
+                    "type": "string",
+                    "description": "Gets the details of other DNR testing"
+                },
+                "WelfareCase": {
+                    "type": "boolean",
+                    "description": "Gets whether the submission constitutes a welfare case"
+                },
+                "ApprovalStatus": {
+                    "type": "string",
+                    "description": "Gets the approval status of the submission"
+                },
+                "IgnoreErrors": {
+                    "type": "boolean",
+                    "description": "Gets whether non-critical errors in the approval process should be ignored"
+                },
+                "DiagnosisFindings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/VIODiagnosis"
+                    },
+                    "description": "Gets the list of Diagnosis Findings"
+                },
+                "LabInstruction": {
+                    "type": "string",
+                    "description": "Gets any instructions being sent to the lab by the VIO"
+                },
+                "LabToAction": {
+                    "type": "boolean",
+                    "description": "Gets whether the VIO has marked the submission as requiring action by the lab"
+                },
+                "LastModifiedBy": {
+                    "type": "string",
+                    "description": "Gets the ID of the person who last updated the submission"
+                },
+                "ValidationErrors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Gets the List of validation errors returned from LIMS API"
+                },
+                "ErrorMessages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Gets the List of error messages returned from LIMS API"
+                },
+                "PreviousRef": {
+                    "type": "string",
+                    "description": "Gets the previous submission reference"
+                },
+                "DateOfSampling": {
+                    "type": "string",
+                    "description": "Gets the date of sampling"
+                }
+            }
+        },
+        "VIODiagnosis": {
+            "properties": {
+                "Pathological": {
+                    "type": "string",
+                    "description": "Gets the VIDA Code"
+                },
+                "Comments": {
+                    "type": "string",
+                    "description": "Gets the diagnosis comments"
+                },
+                "Continuation": {
+                    "type": "boolean",
+                    "description": "Gets the whether the diagnosis is a continuation"
+                }
+            }
+        },
+    }
+}

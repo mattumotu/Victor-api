@@ -1,0 +1,112 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/SetSubmissionRelease": {
+            "post": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "vioRelease",
+                        "description": "",
+                        "required": True,
+                        "type": "VIORelease"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/VIORelease"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIORelease": {
+            "properties": {
+                "ReleaseID": {
+                    "type": "string",
+                    "description": "Gets the release id"
+                },
+                "SubmissionID": {
+                    "type": "string",
+                    "description": "Gets the submission id"
+                },
+                "ReleaseNo": {
+                    "type": "string",
+                    "description": "Gets the release number"
+                },
+                "ReleasedBy": {
+                    "type": "string",
+                    "description": "Gets the id of who released it"
+                },
+                "ReleasedDate": {
+                    "type": "string",
+                    "description": "Gets the the released date"
+                },
+                "Comment": {
+                    "type": "string",
+                    "description": "Gets the comment"
+                },
+                "TestNumbers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Gets the list of test numbers being released"
+                },
+                "SubmissionComments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Gets the list of submission comments being released"
+                },
+                "SampleComments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Gets the list of sample comments being released"
+                },
+                "ReportString": {
+                    "type": "string",
+                    "description": "Gets the base64 encoded string of report PDF"
+                },
+                "ValidationErrors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Gets the list of validation errors returned from LIMS API"
+                },
+                "ErrorMessages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Gets the list of error messages returned from LIMS API"
+                }
+            }
+        },
+    }
+}

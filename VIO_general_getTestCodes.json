@@ -1,0 +1,60 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/general/getTestCodes": {
+            "get": {
+                "summary": "Gets a collection of TestCode from LIMS, including internal ones.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "testCode",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "a collection of TestCode",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/TestCode"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "TestCode": {
+            "properties": {
+                "TestName": {
+                    "type": "string",
+                    "description": "Gets the test name"
+                },
+                "TestDescription": {
+                    "type": "string",
+                    "description": "Gets the test description"
+                }
+            }
+        },
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/GetReleasedResultSampleTests": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/VIOResultSetSample"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOResultSetSample": {
+            "properties": {
+                "TestNumber": {
+                    "type": "number",
+                    "description": "Gets the Unique identifier for the sample and test combination"
+                },
+                "TestCode": {
+                    "type": "string",
+                    "description": "Gets the Code for the test being performed"
+                },
+                "SampleName": {
+                    "type": "string",
+                    "description": "Gets the Name of the sample being tested"
+                },
+                "Finished": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether the test is finished"
+                },
+                "Amended": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether the test has been amended since being released"
+                },
+                "Accredited": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether the test is UKAS accredited"
+                },
+                "SampleRefOrder": {
+                    "type": "string",
+                    "description": "Gets the Order in which the data should be displayed"
+                }
+            }
+        },
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/GetUnreleasedResultSections": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/VIOResultSetSection"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOResultSetSection": {
+            "properties": {
+                "SectionName": {
+                    "type": "string",
+                    "description": "Gets the name of the section"
+                },
+                "SectionType": {
+                    "type": "string",
+                    "description": "Gets the type of section e.g. Generic, Salmonella, etc."
+                },
+                "OrderNumber": {
+                    "type": "number",
+                    "description": "Gets the display order sort value"
+                },
+                "TableSplit": {
+                    "type": "string",
+                    "description": "Gets the Table Split value"
+                }
+            }
+        },
+    }
+}

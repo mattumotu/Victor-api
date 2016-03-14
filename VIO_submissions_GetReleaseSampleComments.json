@@ -1,0 +1,68 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/GetReleaseSampleComments": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/VIOSampleComment"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOSampleComment": {
+            "properties": {
+                "SampleRef": {
+                    "type": "string",
+                    "description": "Gets the Reference of the sample to which the comments apply"
+                },
+                "CommentId": {
+                    "type": "string",
+                    "description": "Gets the id of the comment"
+                },
+                "Comment": {
+                    "type": "string",
+                    "description": "Gets the Contents of the comment"
+                },
+                "SampleRefOrder": {
+                    "type": "string",
+                    "description": "Gets the Order in which the comment should be displayed"
+                }
+            }
+        },
+    }
+}

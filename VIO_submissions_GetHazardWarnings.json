@@ -1,0 +1,76 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/GetHazardWarnings": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/VIOHazardWarning"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOHazardWarning": {
+            "properties": {
+                "SubmissionId": {
+                    "type": "string",
+                    "description": "Gets the Submission Id"
+                },
+                "Test": {
+                    "type": "string",
+                    "description": "Gets the Test"
+                },
+                "Result": {
+                    "type": "string",
+                    "description": "Gets the Result"
+                },
+                "Species": {
+                    "type": "string",
+                    "description": "Gets the Species"
+                },
+                "ResultDate": {
+                    "type": "string",
+                    "description": "Gets the ResultDate"
+                },
+                "Comment": {
+                    "type": "string",
+                    "description": "Gets the Comment"
+                }
+            }
+        },
+    }
+}

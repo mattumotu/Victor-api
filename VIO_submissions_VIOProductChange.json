@@ -1,0 +1,93 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/VIOProductChange": {
+            "post": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "vioProductChangeRequest",
+                        "description": "",
+                        "required": True,
+                        "type": "VIOProductChangeRequest"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/VIOProductChangeResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOProductChangeResponse": {
+            "properties": {
+                "hasErrors": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether errors have occurred"
+                },
+                "errorMessage": {
+                    "type": "string",
+                    "description": "Gets the SMS error messages"
+                }
+            }
+        },
+        "VIOProductChangeRequest": {
+            "properties": {
+                "SubmissionId": {
+                    "type": "string",
+                    "description": ""
+                },
+                "VIOChangeString": {
+                    "type": "string",
+                    "description": ""
+                },
+                "OldProductID": {
+                    "type": "string",
+                    "description": ""
+                },
+                "NewProductID": {
+                    "type": "string",
+                    "description": ""
+                },
+                "NewOptions": {
+                    "type": "string",
+                    "description": ""
+                },
+                "NewContract": {
+                    "type": "string",
+                    "description": ""
+                },
+                "AnimalNames": {
+                    "type": "string",
+                    "description": ""
+                },
+                "ModifiedBy": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        },
+    }
+}

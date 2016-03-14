@@ -1,0 +1,95 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/general/getClients": {
+            "get": {
+                "summary": "Gets a collection of Client from LIMS optionally filtered",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "pvsId",
+                        "description": "optional filter PVS id",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "filter",
+                        "description": "optional filter text",
+                        "required": False,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "a collection of Client",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Client"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Client": {
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "Gets the Client Id, same as CPHH"
+                },
+                "farm": {
+                    "type": "string",
+                    "description": "Gets the name of the farm"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Gets the Client name"
+                },
+                "address": {
+                    "type": "string",
+                    "description": "Gets the Client address"
+                },
+                "county": {
+                    "type": "string",
+                    "description": "Gets the Client county"
+                },
+                "subCounty": {
+                    "type": "string",
+                    "description": "Gets the Client sub county"
+                },
+                "postcode": {
+                    "type": "string",
+                    "description": "Gets the client postcode"
+                },
+                "location": {
+                    "type": "string",
+                    "description": "Gets the Client location (Easting, Northing)"
+                },
+                "cphh": {
+                    "type": "string",
+                    "description": "Gets the Client CPHH"
+                }
+            }
+        },
+    }
+}

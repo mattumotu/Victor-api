@@ -1,0 +1,162 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/GetSubmissions": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "reportMethod",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "owningVIC",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": False,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "senderName",
+                        "description": "",
+                        "required": False,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "clientName",
+                        "description": "",
+                        "required": False,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "receivedDate_Start",
+                        "description": "",
+                        "required": False,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "receivedDate_End",
+                        "description": "",
+                        "required": False,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/VIOSubmissionSummary"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOSubmissionSummary": {
+            "properties": {
+                "SubmissionId": {
+                    "type": "string",
+                    "description": "Gets the Id of the submission"
+                },
+                "IsDigital": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether the submission is digital or not"
+                },
+                "PVS": {
+                    "type": "string",
+                    "description": "Gets the Name of the PVS who sent in the submission"
+                },
+                "Client": {
+                    "type": "string",
+                    "description": "Gets the Name of the Client from which the submission originated"
+                },
+                "DateSubmitted": {
+                    "type": "string",
+                    "description": "Gets the Date submission was recorded on the Web Portal"
+                },
+                "DateReceived": {
+                    "type": "string",
+                    "description": "Gets the Date submission was received at the VIC"
+                },
+                "Status": {
+                    "type": "string",
+                    "description": "Gets the Status of the submission"
+                },
+                "TestsRequested": {
+                    "type": "string",
+                    "description": "Gets the Tests requested against the submission"
+                },
+                "TestsWithSamples": {
+                    "type": "string",
+                    "description": "Gets the tests requested with sample types"
+                },
+                "ResultsAvailable": {
+                    "type": "string",
+                    "description": "Gets the Results available for the submission"
+                },
+                "TestsOutstanding": {
+                    "type": "string",
+                    "description": "Gets the Tests outstanding against the submission"
+                },
+                "ResultsReleased": {
+                    "type": "string",
+                    "description": "Gets the Results released for the submission"
+                },
+                "DateReleased": {
+                    "type": "string",
+                    "description": "Gets the Date results were last released for the submission"
+                },
+                "ReleaseType": {
+                    "type": "string",
+                    "description": "Gets the Type of results last released for the submission"
+                },
+                "ResponsibleOfficer": {
+                    "type": "string",
+                    "description": "Gets the Responsible Officer"
+                },
+                "ApprovalWarnings": {
+                    "type": "boolean",
+                    "description": "Gets the Responsible Approval Warnings flag"
+                },
+                "Released": {
+                    "type": "boolean",
+                    "description": "Gets the Released flag"
+                }
+            }
+        },
+    }
+}

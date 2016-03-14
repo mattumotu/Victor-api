@@ -1,0 +1,163 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/general/getProducts": {
+            "get": {
+                "summary": "Gets a collection of Product optionally filtered",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "filter",
+                        "description": "optional filter text",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "species",
+                        "description": "optional filter species",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "tests",
+                        "description": "optional csv list of test codes",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "a collection of Product",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Product"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Product": {
+            "properties": {
+                "productId": {
+                    "type": "string",
+                    "description": "Gets the Product Id; A Package Code or Test Code."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Gets the Products Name"
+                },
+                "price": {
+                    "type": "number",
+                    "description": "Gets the Product price. Simplified as it ignores price lists and contracts"
+                },
+                "maximumTurnaround": {
+                    "type": "number",
+                    "description": "Gets the maximum turnaround time in days"
+                },
+                "averageTurnaround": {
+                    "type": "number",
+                    "description": "Gets the recent average turnaround time in days as reported by SMS"
+                },
+                "productType": {
+                    "type": "string",
+                    "description": "Gets the Product Type, e.g. PCR / ELISA etc"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Gets the Type. e.g. Package / Test"
+                },
+                "species": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Gets the valid species for this product"
+                },
+                "sampleTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProductSampleType"
+                    },
+                    "description": "Gets the valid sampleTypes for this product"
+                },
+                "options": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProductOption"
+                    },
+                    "description": "Gets the options for this Product"
+                },
+                "optionsType": {
+                    "type": "string",
+                    "description": "Gets the option Type for this Product"
+                },
+                "minOptions": {
+                    "type": "number",
+                    "description": "Gets the min number of options for this Product"
+                },
+                "maxOptions": {
+                    "type": "number",
+                    "description": "Gets the max number of options for this Product"
+                }
+            }
+        },
+        "ProductSampleType": {
+            "properties": {
+                "sampleId": {
+                    "type": "string",
+                    "description": "Gets the SMS Code for this sample type"
+                },
+                "sampleName": {
+                    "type": "string",
+                    "description": "Gets the SMS display text for this sampleType"
+                },
+                "testSampleName": {
+                    "type": "string",
+                    "description": "Gets the Test's display text for this sampleType"
+                },
+                "canPool": {
+                    "type": "boolean",
+                    "description": "Gets whether this sampleType can be pooled or not"
+                },
+                "maxPool": {
+                    "type": "number",
+                    "description": "Gets the maximum number of samples that can be pooled for this sampleType"
+                }
+            }
+        },
+        "ProductOption": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Gets the Product Option id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Gets the Product Option name"
+                }
+            }
+        },
+    }
+}

@@ -1,0 +1,96 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/GetUnreleasedResults": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/VIOResultSetSampleTestResult"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOResultSetSampleTestResult": {
+            "properties": {
+                "TestNumber": {
+                    "type": "string",
+                    "description": "Gets the Id that uniquely identifies the sample / test combination"
+                },
+                "ComponentName": {
+                    "type": "string",
+                    "description": "Gets the Name of the test component for which a result is being returned"
+                },
+                "SectionName": {
+                    "type": "string",
+                    "description": "Gets the Name of the section to which the result belongs"
+                },
+                "SubSectionName": {
+                    "type": "string",
+                    "description": "Gets the Name of the sub section to which the result belongs"
+                },
+                "SampleName": {
+                    "type": "string",
+                    "description": "Gets the Name of the sample to which the result applies"
+                },
+                "TestName": {
+                    "type": "string",
+                    "description": "Gets the Name & Code of the test that produced the result"
+                },
+                "TestCode": {
+                    "type": "string",
+                    "description": "Gets the Code of the test that produced the result"
+                },
+                "Result": {
+                    "type": "string",
+                    "description": "Gets the Details of the result"
+                },
+                "Amended": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether the result has been amended since being released"
+                },
+                "TestOrderNumber": {
+                    "type": "number",
+                    "description": "Gets the Order in which the result should be displayed"
+                },
+                "SampleRefOrder": {
+                    "type": "string",
+                    "description": "Gets te sample ref order"
+                }
+            }
+        },
+    }
+}

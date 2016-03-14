@@ -1,0 +1,71 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/general/getPhrase": {
+            "get": {
+                "summary": "Gets a collection of Phrase from LIMS",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "phraseType",
+                        "description": "Type of phrase being requested",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "phraseID",
+                        "description": "ID of phrase being requested",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "a collection of Phrase",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Phrase"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Phrase": {
+            "properties": {
+                "phraseType": {
+                    "type": "string",
+                    "description": "Gets the Phrase Type"
+                },
+                "phraseId": {
+                    "type": "string",
+                    "description": "Gets the Phrase Id"
+                },
+                "phraseText": {
+                    "type": "string",
+                    "description": "Gets the Phrase text"
+                }
+            }
+        },
+    }
+}

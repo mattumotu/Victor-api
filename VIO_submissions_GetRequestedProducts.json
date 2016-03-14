@@ -1,0 +1,103 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/GetRequestedProducts": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/RequestedProduct"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "RequestedProduct": {
+            "properties": {
+                "ProductID": {
+                    "type": "string",
+                    "description": "Gets the Product ID"
+                },
+                "ProductType": {
+                    "type": "string",
+                    "description": "Gets the Product type"
+                },
+                "SampleType": {
+                    "type": "string",
+                    "description": "Gets the sample type"
+                },
+                "Samples": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RequestedSample"
+                    },
+                    "description": "Gets the collection of requested samples"
+                },
+                "Options": {
+                    "type": "string",
+                    "description": "Gets the requested options"
+                },
+                "ContractID": {
+                    "type": "string",
+                    "description": "Gets the Contract ID"
+                },
+                "ProductDescription": {
+                    "type": "string",
+                    "description": "Gets the product description"
+                }
+            }
+        },
+        "RequestedSample": {
+            "properties": {
+                "AnimalID": {
+                    "type": "number",
+                    "description": "Gets the Animal ID"
+                },
+                "AnimalName": {
+                    "type": "string",
+                    "description": "Gets the Animal Name"
+                },
+                "SampleID": {
+                    "type": "string",
+                    "description": "Gets the Sample ID"
+                },
+                "PoolGroup": {
+                    "type": "string",
+                    "description": "Gets the pool group"
+                }
+            }
+        },
+    }
+}

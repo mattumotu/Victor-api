@@ -1,0 +1,69 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/general/getVIO": {
+            "get": {
+                "summary": "Gets a specified VIO from LIMS.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "staffNumber",
+                        "description": "Staff number of the VIO being searched for.",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Details of the specified VIO.",
+                        "schema": {
+                            "$ref": "#/definitions/VIO"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIO": {
+            "properties": {
+                "Identifier": {
+                    "type": "string",
+                    "description": "Gets the VIOs identifier"
+                },
+                "StaffNumber": {
+                    "type": "string",
+                    "description": "Gets the VIOs staff number"
+                },
+                "StaffName": {
+                    "type": "string",
+                    "description": "Gets the VIOs staff name"
+                },
+                "HomeLocation": {
+                    "type": "string",
+                    "description": "Gets the VIOs home location"
+                },
+                "IsLSD": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether"
+                }
+            }
+        },
+    }
+}

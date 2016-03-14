@@ -1,0 +1,92 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/submissions/getReleaseSummary": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "pvsId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ReleaseSummary"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ReleaseSummary": {
+            "properties": {
+                "SubmissionId": {
+                    "type": "string",
+                    "description": "Gets the Submission Id"
+                },
+                "PvsId": {
+                    "type": "string",
+                    "description": "Gets the PvsId"
+                },
+                "SubmissionHeader": {
+                    "type": "string",
+                    "description": "Gets the Submission Header"
+                },
+                "VioComment": {
+                    "type": "string",
+                    "description": "Gets the VIO Comment"
+                },
+                "LastRelease": {
+                    "type": "string",
+                    "description": "Gets the Date of last release"
+                },
+                "LastReleaseBy": {
+                    "type": "string",
+                    "description": "Gets the Who released last release"
+                },
+                "Releases": {
+                    "type": "number",
+                    "description": "Gets the number of releases"
+                },
+                "HasAccreditation": {
+                    "type": "boolean",
+                    "description": "Gets a value which indicates whether the report has accredited tests"
+                },
+                "LastReportString": {
+                    "type": "string",
+                    "description": "Gets the base64 string of latest report PDF"
+                }
+            }
+        },
+    }
+}

@@ -1,0 +1,93 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/general/getAutoText": {
+            "get": {
+                "summary": "Gets a collection of AutoText from LIMS optionally filtered.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "autoTextId",
+                        "description": "Optional filter id",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "speciesId",
+                        "description": "Optional filter species id",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "testCode",
+                        "description": "Optional filter test code",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "titleFilter",
+                        "description": "Optional filter title text",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "a collection of AutoText",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/AutoText"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "AutoText": {
+            "properties": {
+                "AutoTextId": {
+                    "type": "string",
+                    "description": "Gets the Auto Text Id"
+                },
+                "SpeciesId": {
+                    "type": "string",
+                    "description": "Gets the Species Id"
+                },
+                "TestCode": {
+                    "type": "string",
+                    "description": "Gets the Test Code"
+                },
+                "Title": {
+                    "type": "string",
+                    "description": "Gets the Title"
+                },
+                "AutoTextContent": {
+                    "type": "string",
+                    "description": "Gets the Auto Text Content"
+                }
+            }
+        },
+    }
+}

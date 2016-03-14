@@ -1,0 +1,72 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/GetReleasedResultSubSections": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "submissionId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/VIOResultSetSubSection"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "VIOResultSetSubSection": {
+            "properties": {
+                "SectionName": {
+                    "type": "string",
+                    "description": "Gets or sets the Name of the parent section"
+                },
+                "SubSectionName": {
+                    "type": "string",
+                    "description": "Gets or sets the Name of the sub section"
+                },
+                "SubSectionType": {
+                    "type": "string",
+                    "description": "Gets or sets the Type of sub section e.g. Standard, Text, Pivot, Sensitivity"
+                },
+                "Footnote": {
+                    "type": "string",
+                    "description": "Gets or sets the Footnote"
+                },
+                "OrderNumber": {
+                    "type": "number",
+                    "description": "Gets or sets the display order sort value"
+                }
+            }
+        },
+    }
+}

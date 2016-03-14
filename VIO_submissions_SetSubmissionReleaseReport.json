@@ -1,0 +1,65 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/VIO/submissions/SetSubmissionReleaseReport": {
+            "post": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "vioRelease",
+                        "description": "",
+                        "required": True,
+                        "type": "SaveVIOReleaseReportRequest"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/SaveVIOReleaseReportRequest"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "SaveVIOReleaseReportRequest": {
+            "properties": {
+                "SubmissionID": {
+                    "type": "string",
+                    "description": "Gets the submission id"
+                },
+                "ReleaseNo": {
+                    "type": "string",
+                    "description": "Gets the release number"
+                },
+                "ReportString": {
+                    "type": "string",
+                    "description": "Gets the base64 encoded string of report PDF"
+                },
+                "ErrorMessage": {
+                    "type": "string",
+                    "description": "Gets the  error message returned from LIMS API"
+                }
+            }
+        },
+    }
+}

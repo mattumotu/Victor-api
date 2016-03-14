@@ -1,0 +1,246 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This a REST API abstraction over the LIMS SOAP API",
+        "version": "0.1",
+        "title": "LIMS Rest API"
+    },
+    "host": "vla63test",
+    "basePath": "/LIMSRestAPI",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/submissions/getSubmissions": {
+            "get": {
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "pvsId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "clientId",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "status",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "submittedBy",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "clinician",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "submittedDateBegin",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "submittedDateEnd",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "pvslastModifiedDateBegin",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "pvsLastModifiedDateEnd",
+                        "description": "",
+                        "required": True,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/SubmissionSummary"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, see returned error message for details."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "SubmissionSummary": {
+            "properties": {
+                "submissionId": {
+                    "type": "string",
+                    "description": "Gets the submission id"
+                },
+                "draftSubmissionId": {
+                    "type": "string",
+                    "description": "Gets the draft submission id"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Gets the type"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Gets the status"
+                },
+                "isDigital": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether the submission is digital"
+                },
+                "clinician": {
+                    "type": "string",
+                    "description": "Gets the clinician"
+                },
+                "clientName": {
+                    "type": "string",
+                    "description": "Gets the client name"
+                },
+                "species": {
+                    "type": "string",
+                    "description": "Gets the species"
+                },
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProductSummary"
+                    },
+                    "description": "Gets the list of products"
+                },
+                "vioHasChanged": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether the VIO has changed this submission"
+                },
+                "submittedDate": {
+                    "type": "string",
+                    "description": "Gets the submitted date"
+                },
+                "submittedById": {
+                    "type": "string",
+                    "description": "Gets the submitted by id"
+                },
+                "isCancelable": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether the submission can be cancelled"
+                },
+                "resultsDueDate": {
+                    "type": "string",
+                    "description": "Gets the results due date"
+                },
+                "resultsAvailable": {
+                    "type": "boolean",
+                    "description": "Gets a value indicating whether any results are available"
+                },
+                "changedStatusDate": {
+                    "type": "string",
+                    "description": "Gets the changed status date"
+                },
+                "pvsLastModifiedDate": {
+                    "type": "string",
+                    "description": "Gets the PVS last modified date"
+                }
+            }
+        },
+        "ProductSummary": {
+            "properties": {
+                "productId": {
+                    "type": "string",
+                    "description": "Gets or sets the Product Id; A Package Code or Test Code."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Gets or sets the Products Name"
+                },
+                "productType": {
+                    "type": "string",
+                    "description": "Gets or sets the Product Type, e.g. PCR / ELISA etc"
+                },
+                "sampleType": {
+                    "type": "string",
+                    "description": "Gets or sets the Sample Type"
+                },
+                "numberSamples": {
+                    "type": "number",
+                    "description": "Gets or sets the number of samples"
+                },
+                "productSummaryDeliveryAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SampleTypeDeliveryAddress"
+                    },
+                    "description": "Gets or sets the delivery address"
+                }
+            }
+        },
+        "SampleTypeDeliveryAddress": {
+            "properties": {
+                "sampleType": {
+                    "type": "string",
+                    "description": ""
+                },
+                "deliveryAddress": {
+                    "$ref": "#/definitions/DeliveryAddress",
+                    "description": ""
+                }
+            }
+        },
+        "DeliveryAddress": {
+            "properties": {
+                "address1": {
+                    "type": "string",
+                    "description": "Gets or sets the first line of the address"
+                },
+                "address2": {
+                    "type": "string",
+                    "description": "Gets or sets the second line of the address"
+                },
+                "address3": {
+                    "type": "string",
+                    "description": "Gets or sets the third line of the address"
+                },
+                "labEmail": {
+                    "type": "string",
+                    "description": "Gets or sets the lab email address"
+                },
+                "labId": {
+                    "type": "string",
+                    "description": "Gets or sets the lab Id"
+                }
+            }
+        },
+    }
+}
