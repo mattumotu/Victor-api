@@ -81,6 +81,13 @@
                         "required": True,
                         "type": "string"
                     },
+                    {
+                        "in": "query",
+                        "name": "openFOPOnly",
+                        "description": "",
+                        "required": True,
+                        "type": "boolean"
+                    },
                 ],
                 "responses": {
                     "200": {
@@ -172,6 +179,18 @@
                 "pvsLastModifiedDate": {
                     "type": "string",
                     "description": "Gets the PVS last modified date"
+                },
+                "isFOP": {
+                    "type": "boolean",
+                    "description": "Gets a flag that indicates whether this submission is first of pair for paired serology"
+                },
+                "isSOP": {
+                    "type": "boolean",
+                    "description": "Gets a flag that indicates whether this submission is first of pair for paired serology"
+                },
+                "clientFarm": {
+                    "type": "string",
+                    "description": "Gets the client farm name"
                 }
             }
         },

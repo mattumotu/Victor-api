@@ -144,6 +144,10 @@
                 "maxPool": {
                     "type": "number",
                     "description": "Gets the maximum number of samples that can be pooled for this sampleType"
+                },
+                "isPairable": {
+                    "type": "boolean",
+                    "description": "Gets whether this sampleType can be paired for serology or not"
                 }
             }
         },

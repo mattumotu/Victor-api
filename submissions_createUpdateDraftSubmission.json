@@ -262,6 +262,14 @@
                 "animalAddressLatLng": {
                     "type": "string",
                     "description": ""
+                },
+                "linkedFirstOfPairSubmissionId": {
+                    "type": "string",
+                    "description": "Gets or sets the linked FOP submission id"
+                },
+                "isSOP": {
+                    "type": "boolean",
+                    "description": "Gets or sets a flag that indicates whether the submission is second of pair"
                 }
             }
         },
@@ -304,6 +312,14 @@
                         "$ref": "#/definitions/SubmissionSample"
                     },
                     "description": ""
+                },
+                "isFOP": {
+                    "type": "boolean",
+                    "description": "Gets or sets a value to indicate whether the product is first of pair"
+                },
+                "isSOP": {
+                    "type": "boolean",
+                    "description": "Gets or sets a value to indicate whether the product is second of pair"
                 }
             }
         },

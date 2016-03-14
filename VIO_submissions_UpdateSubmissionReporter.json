@@ -11,7 +11,7 @@
         "http"
     ],
     "paths": {
-        "/submissions/cancelSubmission": {
+        "/VIO/submissions/UpdateSubmissionReporter": {
             "post": {
                 "summary": "",
                 "produces": [
@@ -20,17 +20,17 @@
                 "parameters": [
                     {
                         "in": "query",
-                        "name": "cancelSubmissionRequest",
+                        "name": "cr",
                         "description": "",
                         "required": True,
-                        "type": "CancelSubmissionRequest"
+                        "type": "UpdateSubmissionReporterRequest"
                     },
                 ],
                 "responses": {
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/GenericResponse"
+                            "$ref": "#/definitions/UpdateSubmissionReporterResponse"
                         }
                     },
                     "400": {
@@ -41,11 +41,23 @@
         }
     },
     "definitions": {
-        "GenericResponse": {
+        "UpdateSubmissionReporterResponse": {
             "properties": {
+                "submissionId": {
+                    "type": "string",
+                    "description": "Gets the submission id error"
+                },
+                "reporter": {
+                    "type": "string",
+                    "description": "Gets the reporter error"
+                },
                 "hasErrors": {
                     "type": "boolean",
                     "description": "Gets a value indicating whether errors have occurred"
+                },
+                "validationErrors": {
+                    "type": "string",
+                    "description": "Gets the validation error messages"
                 },
                 "errorMessages": {
                     "type": "array",
@@ -56,19 +68,15 @@
                 }
             }
         },
-        "CancelSubmissionRequest": {
+        "UpdateSubmissionReporterRequest": {
             "properties": {
-                "submissionDraftId": {
+                "SubmissionID": {
                     "type": "string",
-                    "description": "Gets or sets the submission draft id"
+                    "description": "Holds the SubmissionID to be updated"
                 },
-                "pvsId": {
+                "Reporter": {
                     "type": "string",
-                    "description": "Gets or sets the PVS id"
-                },
-                "clinician": {
-                    "type": "string",
-                    "description": "Gets or sets the name of the clinician"
+                    "description": "Holds the value Reporter to be set to"
                 }
             }
         },
