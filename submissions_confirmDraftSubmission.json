@@ -13,7 +13,7 @@
     "paths": {
         "/submissions/confirmDraftSubmission": {
             "post": {
-                "summary": "",
+                "summary": "Confirm (Submit) a Draft Submission.",
                 "produces": [
                     "application/json"
                 ],
@@ -21,14 +21,14 @@
                     {
                         "in": "query",
                         "name": "confirmDraftSubmissionRequest",
-                        "description": "",
+                        "description": "The request specifying which Draft Submission",
                         "required": True,
                         "type": "ConfirmDraftSubmissionRequest"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A response indicating success or error messages",
                         "schema": {
                             "$ref": "#/definitions/ConfirmDraftSubmissionResponse"
                         }
@@ -57,6 +57,18 @@
                         "type": "string"
                     },
                     "description": "Gets the SMS error messages"
+                }
+            }
+        },
+        "ConfirmDraftSubmissionRequest": {
+            "properties": {
+                "pvsId": {
+                    "type": "string",
+                    "description": "Gets or sets the PVS Id"
+                },
+                "draftSubmissionId": {
+                    "type": "string",
+                    "description": "Gets or sets the Draft Submission Ids"
                 }
             }
         },

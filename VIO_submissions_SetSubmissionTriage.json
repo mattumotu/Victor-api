@@ -13,7 +13,7 @@
     "paths": {
         "/VIO/submissions/SetSubmissionTriage": {
             "post": {
-                "summary": "",
+                "summary": "Updates the Triage status of an existing LIMS submission.",
                 "produces": [
                     "application/json"
                 ],
@@ -21,14 +21,14 @@
                     {
                         "in": "query",
                         "name": "vioSubmission",
-                        "description": "",
+                        "description": "A VIOSubmission with the desired Triage status",
                         "required": True,
                         "type": "VIOSubmission"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "an updated VIOSubmission",
                         "schema": {
                             "$ref": "#/definitions/VIOSubmission"
                         }
@@ -215,9 +215,13 @@
                     "type": "string",
                     "description": "Gets the Main email address that needs to be notified of results"
                 },
-                "Rep_CC_Email": {
+                "Rep_Victor_CC_Email": {
                     "type": "string",
-                    "description": "Gets the Other email address that needs to be notified of results"
+                    "description": "Gets the Victor email address that needs to be notified of results"
+                },
+                "Rep_Other_CC_Email": {
+                    "type": "string",
+                    "description": "Gets the non-Victor email address that needs to be notified of results"
                 },
                 "FinalReportDate": {
                     "type": "string",
@@ -287,6 +291,14 @@
                 "DateOfSampling": {
                     "type": "string",
                     "description": "Gets the date of sampling"
+                },
+                "IsDiseaseConcern": {
+                    "type": "boolean",
+                    "description": "Gets whether the VIO has marked the submission as having notifiable disease concern"
+                },
+                "IsTriage": {
+                    "type": "boolean",
+                    "description": "Sets a value indicating whether the submission has been triaged."
                 }
             }
         },
@@ -302,6 +314,10 @@
                 },
                 "Continuation": {
                     "type": "boolean",
+                    "description": "Gets the whether the diagnosis is a continuation"
+                },
+                "PathologicalDesc": {
+                    "type": "string",
                     "description": "Gets the whether the diagnosis is a continuation"
                 }
             }

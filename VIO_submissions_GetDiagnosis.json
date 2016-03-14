@@ -57,6 +57,10 @@
                 "Continuation": {
                     "type": "boolean",
                     "description": "Gets the whether the diagnosis is a continuation"
+                },
+                "PathologicalDesc": {
+                    "type": "string",
+                    "description": "Gets the whether the diagnosis is a continuation"
                 }
             }
         },

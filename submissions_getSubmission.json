@@ -13,7 +13,7 @@
     "paths": {
         "/submissions/getSubmission": {
             "get": {
-                "summary": "",
+                "summary": "Gets a submission from LIMS matching the specified criteria.",
                 "produces": [
                     "application/json"
                 ],
@@ -21,21 +21,21 @@
                     {
                         "in": "query",
                         "name": "pvsId",
-                        "description": "",
+                        "description": "The PVS Id",
                         "required": True,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "submissionId",
-                        "description": "",
+                        "description": "The Submission Id",
                         "required": True,
                         "type": "string"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A populated submission",
                         "schema": {
                             "$ref": "#/definitions/Submission"
                         }
@@ -433,6 +433,14 @@
                 "averageTurnaround": {
                     "type": "number",
                     "description": "Gets or sets the recent average turnaround time in days as reported by SMS"
+                },
+                "isFOP": {
+                    "type": "boolean",
+                    "description": "Gets or sets a value indicating whether this product is first of pair"
+                },
+                "isSOP": {
+                    "type": "boolean",
+                    "description": "Gets or sets a value indicating whether this product is second of pair"
                 }
             }
         },
@@ -458,17 +466,21 @@
                     "type": "string",
                     "description": "Gets the animal name"
                 },
+                "packageProductId": {
+                    "type": "string",
+                    "description": "Gets or sets the package product Id"
+                },
                 "sampleId": {
                     "type": "string",
                     "description": "Gets the sample Id"
                 },
                 "poolGroup": {
                     "type": "string",
-                    "description": "Gets the optional pool group"
+                    "description": "Gets the pool group (optional)"
                 },
                 "sampleType": {
                     "type": "string",
-                    "description": "Gets the optional sample type"
+                    "description": "Gets the type of this sample (optional)"
                 }
             }
         },

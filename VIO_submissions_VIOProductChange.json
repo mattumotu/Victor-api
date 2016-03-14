@@ -13,7 +13,7 @@
     "paths": {
         "/VIO/submissions/VIOProductChange": {
             "post": {
-                "summary": "",
+                "summary": "Updates a Product of an existing submitted (but not yet received) LIMS submission.",
                 "produces": [
                     "application/json"
                 ],
@@ -21,14 +21,14 @@
                     {
                         "in": "query",
                         "name": "vioProductChangeRequest",
-                        "description": "",
+                        "description": "A VIOProductChangeRequest detailing the Product to be updated",
                         "required": True,
                         "type": "VIOProductChangeRequest"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "a VIOProductChangeResponse detailing success or failure",
                         "schema": {
                             "$ref": "#/definitions/VIOProductChangeResponse"
                         }

@@ -13,7 +13,7 @@
     "paths": {
         "/submissions/cancelSubmission": {
             "post": {
-                "summary": "",
+                "summary": "Cancel a draft or submitted (but not received) submission.",
                 "produces": [
                     "application/json"
                 ],
@@ -21,14 +21,14 @@
                     {
                         "in": "query",
                         "name": "cancelSubmissionRequest",
-                        "description": "",
+                        "description": "The request specifying the Draft Submission",
                         "required": True,
                         "type": "CancelSubmissionRequest"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A response indicating success or error messages",
                         "schema": {
                             "$ref": "#/definitions/GenericResponse"
                         }

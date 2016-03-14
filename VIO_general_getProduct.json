@@ -35,7 +35,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "a populated VIO Product",
                         "schema": {
                             "$ref": "#/definitions/VIOProduct"
                         }

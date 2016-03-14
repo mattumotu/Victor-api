@@ -22,21 +22,21 @@
                         "in": "query",
                         "name": "filter",
                         "description": "optional filter text",
-                        "required": True,
+                        "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "species",
                         "description": "optional filter species",
-                        "required": True,
+                        "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "tests",
                         "description": "optional csv list of test codes",
-                        "required": True,
+                        "required": False,
                         "type": "string"
                     },
                 ],
@@ -120,6 +120,13 @@
                 "maxOptions": {
                     "type": "number",
                     "description": "Gets the max number of options for this Product"
+                },
+                "constituentTests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Product"
+                    },
+                    "description": "Gets the constituent tests for this Product"
                 }
             }
         },
@@ -137,9 +144,9 @@
                     "type": "string",
                     "description": "Gets the Test's display text for this sampleType"
                 },
-                "canPool": {
+                "isPooled": {
                     "type": "boolean",
-                    "description": "Gets whether this sampleType can be pooled or not"
+                    "description": "Gets whether this sampleType is pooled or not"
                 },
                 "maxPool": {
                     "type": "number",

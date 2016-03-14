@@ -13,7 +13,7 @@
     "paths": {
         "/submissions/getSubmissions": {
             "get": {
-                "summary": "",
+                "summary": "Gets a collection of Submission Summary from LIMS matching specified criteria.",
                 "produces": [
                     "application/json"
                 ],
@@ -21,77 +21,77 @@
                     {
                         "in": "query",
                         "name": "pvsId",
-                        "description": "",
+                        "description": "the PVS Id",
                         "required": True,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "clientId",
-                        "description": "",
-                        "required": True,
+                        "description": "Optional client id filter",
+                        "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "status",
-                        "description": "",
-                        "required": True,
+                        "description": "Optional status filter",
+                        "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "submittedBy",
-                        "description": "",
-                        "required": True,
+                        "description": "Optional submitted by filter",
+                        "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "clinician",
-                        "description": "",
-                        "required": True,
+                        "description": "Optional clinician filter",
+                        "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "submittedDateBegin",
-                        "description": "",
-                        "required": True,
+                        "description": "Optional submitted Date Begin filter",
+                        "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "submittedDateEnd",
-                        "description": "",
-                        "required": True,
+                        "description": "Optional submitted Date End filter",
+                        "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
-                        "name": "pvslastModifiedDateBegin",
-                        "description": "",
-                        "required": True,
+                        "name": "pvsLastModifiedDateBegin",
+                        "description": "Optional PVS last modified Date Begin filter",
+                        "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "pvsLastModifiedDateEnd",
-                        "description": "",
-                        "required": True,
+                        "description": "Optional PVS last modified Date End filter",
+                        "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "openFOPOnly",
-                        "description": "",
-                        "required": True,
+                        "description": "Optional flag to indicate whether to only return FOP subs without SOP",
+                        "required": False,
                         "type": "boolean"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "a collection of SubmissionSummary matching specified criteria",
                         "schema": {
                             "type": "array",
                             "items": {

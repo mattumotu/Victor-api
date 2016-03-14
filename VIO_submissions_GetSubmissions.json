@@ -13,7 +13,7 @@
     "paths": {
         "/VIO/submissions/GetSubmissions": {
             "get": {
-                "summary": "",
+                "summary": "Gets a collection of VIOSubmissionSummary from LIMS for the specified criteria.",
                 "produces": [
                     "application/json"
                 ],
@@ -21,56 +21,63 @@
                     {
                         "in": "query",
                         "name": "reportMethod",
-                        "description": "",
+                        "description": "Report Method optional filter criteria",
                         "required": True,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "owningVIC",
-                        "description": "",
+                        "description": "the owning VIC",
                         "required": True,
                         "type": "string"
                     },
                     {
                         "in": "query",
+                        "name": "includeApproved",
+                        "description": "flag indicating whether to include approved submissions",
+                        "required": True,
+                        "type": "boolean"
+                    },
+                    {
+                        "in": "query",
                         "name": "submissionId",
-                        "description": "",
+                        "description": "Submission Id optional filter criteria",
                         "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "senderName",
-                        "description": "",
+                        "description": "Sender Name optional filter criteria",
                         "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "clientName",
-                        "description": "",
+                        "description": "Client Name optional filter criteria",
                         "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "receivedDate_Start",
-                        "description": "",
+                        "description": "Received Date begin optional filter criteria",
                         "required": False,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "receivedDate_End",
-                        "description": "",
+                        "description": "Received Date end optional filter criteria",
                         "required": False,
                         "type": "string"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "a collection of VIOSubmissionSummary",
                         "schema": {
                             "type": "array",
                             "items": {

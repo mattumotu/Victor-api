@@ -21,8 +21,8 @@
                     {
                         "in": "query",
                         "name": "testCode",
-                        "description": "",
-                        "required": True,
+                        "description": "optional testCode filter",
+                        "required": False,
                         "type": "string"
                     },
                 ],
