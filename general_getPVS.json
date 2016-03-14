@@ -86,6 +86,10 @@
                 "pvsVetimPressEmail": {
                     "type": "string",
                     "description": "Gets the PVS VetimPress email address"
+                },
+                "pvsTelephoneNo": {
+                    "type": "string",
+                    "description": "Gets the PVS TelephoneNo"
                 }
             }
         },

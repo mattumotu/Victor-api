@@ -57,35 +57,39 @@
             "properties": {
                 "SubmissionId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the submission Id"
                 },
                 "VIOChangeString": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the changetest or addnewproduct (or both separated by a comma)"
+                },
+                "OldPackageTestId": {
+                    "type": "string",
+                    "description": "Gets or sets the old package test Id"
                 },
                 "OldProductID": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the Old product ID"
                 },
                 "NewProductID": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the New product ID"
                 },
                 "NewOptions": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the New options as csv string"
                 },
                 "NewContract": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the New contract as string"
                 },
                 "AnimalNames": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the Animal names as csv string used if adding  TC0293"
                 },
                 "ModifiedBy": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the ID of the person who made the change"
                 }
             }
         },

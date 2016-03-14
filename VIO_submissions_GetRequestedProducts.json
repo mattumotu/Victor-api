@@ -76,6 +76,21 @@
                 "ProductDescription": {
                     "type": "string",
                     "description": "Gets the product description"
+                },
+                "IsFOP": {
+                    "type": "boolean",
+                    "description": "Gets a value which indicates whether the product is first of pair"
+                },
+                "IsSOP": {
+                    "type": "boolean",
+                    "description": "Gets a value which indicates whether the product is second of pair"
+                },
+                "ConstituentTests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RequestedProduct"
+                    },
+                    "description": "Gets the collection of constituent tests for a package"
                 }
             }
         },

@@ -333,6 +333,14 @@
                 "animalAddressLatLng": {
                     "type": "string",
                     "description": ""
+                },
+                "isFOP": {
+                    "type": "boolean",
+                    "description": "Gets whether or not this submission is first of pair"
+                },
+                "isSOP": {
+                    "type": "boolean",
+                    "description": "Gets whether or not this submission is second of pair"
                 }
             }
         },
