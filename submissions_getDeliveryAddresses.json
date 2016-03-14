@@ -13,7 +13,7 @@
     "paths": {
         "/submissions/getDeliveryAddresses": {
             "get": {
-                "summary": "",
+                "summary": "Gets a Delivery Address List from LIMS for the specified submission.",
                 "produces": [
                     "application/json"
                 ],
@@ -21,21 +21,21 @@
                     {
                         "in": "query",
                         "name": "pvsId",
-                        "description": "",
+                        "description": "The PVS Id",
                         "required": True,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "draftSubmissionId",
-                        "description": "",
+                        "description": "The Draft Submission Id",
                         "required": True,
                         "type": "string"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A populated Delivery Address List",
                         "schema": {
                             "$ref": "#/definitions/DeliveryAddressList"
                         }
@@ -83,6 +83,10 @@
                 "testId": {
                     "type": "string",
                     "description": "Gets the test id"
+                },
+                "packageCode": {
+                    "type": "string",
+                    "description": "Gets or sets the package code (if applicable)"
                 },
                 "testDescription": {
                     "type": "string",

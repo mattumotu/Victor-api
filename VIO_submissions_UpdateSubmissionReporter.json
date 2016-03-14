@@ -13,22 +13,22 @@
     "paths": {
         "/VIO/submissions/UpdateSubmissionReporter": {
             "post": {
-                "summary": "",
+                "summary": "Updates the Reporter on an existing LIMS Submission.",
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
                         "in": "query",
-                        "name": "cr",
-                        "description": "",
+                        "name": "updateSubmissionReporterRequest",
+                        "description": "The request specifying desired changes",
                         "required": True,
                         "type": "UpdateSubmissionReporterRequest"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A response indicating success or error messages",
                         "schema": {
                             "$ref": "#/definitions/UpdateSubmissionReporterResponse"
                         }

@@ -91,6 +91,10 @@
                         "$ref": "#/definitions/RequestedProduct"
                     },
                     "description": "Gets the collection of constituent tests for a package"
+                },
+                "TestLoc": {
+                    "type": "string",
+                    "description": "Gets the Test Location"
                 }
             }
         },

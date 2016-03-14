@@ -51,6 +51,10 @@
                     "type": "string",
                     "description": "Gets the release number"
                 },
+                "VICCode": {
+                    "type": "string",
+                    "description": "Gets or sets the VIC Code"
+                },
                 "ReportString": {
                     "type": "string",
                     "description": "Gets the base64 encoded string of report PDF"

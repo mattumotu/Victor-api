@@ -13,7 +13,7 @@
     "paths": {
         "/VIO/submissions/GetContracts": {
             "get": {
-                "summary": "",
+                "summary": "Gets a collection of VIOContract from LIMS for the specified submission.",
                 "produces": [
                     "application/json"
                 ],
@@ -21,28 +21,28 @@
                     {
                         "in": "query",
                         "name": "submissionId",
-                        "description": "",
+                        "description": "The Submission Id",
                         "required": True,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "testCode",
-                        "description": "",
+                        "description": "a test code, optional",
                         "required": True,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "package",
-                        "description": "",
+                        "description": "a package code, optional",
                         "required": True,
                         "type": "string"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "Gets a collection of VIOContract",
                         "schema": {
                             "type": "array",
                             "items": {

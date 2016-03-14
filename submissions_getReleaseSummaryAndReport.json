@@ -13,7 +13,7 @@
     "paths": {
         "/submissions/getReleaseSummaryAndReport": {
             "get": {
-                "summary": "",
+                "summary": "Get a Release Summary including the Report for a specified submission",
                 "produces": [
                     "application/json"
                 ],
@@ -21,21 +21,21 @@
                     {
                         "in": "query",
                         "name": "pvsId",
-                        "description": "",
+                        "description": "The PVS Id",
                         "required": True,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "submissionId",
-                        "description": "",
+                        "description": "The Submission Id",
                         "required": True,
                         "type": "string"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A populated ReleaseSummary",
                         "schema": {
                             "$ref": "#/definitions/ReleaseSummary"
                         }

@@ -21,7 +21,7 @@
                     {
                         "in": "query",
                         "name": "pvsId",
-                        "description": "optional filter PVS id",
+                        "description": "PVS id",
                         "required": True,
                         "type": "string"
                     },

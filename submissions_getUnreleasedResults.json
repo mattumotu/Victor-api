@@ -13,7 +13,7 @@
     "paths": {
         "/submissions/getUnreleasedResults": {
             "get": {
-                "summary": "",
+                "summary": "Get the latest unreleased results from LIMS for a specified submission.Not used by the PVS front end, only used for dev/debugging",
                 "produces": [
                     "application/json"
                 ],
@@ -21,21 +21,21 @@
                     {
                         "in": "query",
                         "name": "pvsId",
-                        "description": "",
+                        "description": "The PVS Id",
                         "required": True,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "submissionId",
-                        "description": "",
+                        "description": "The Submission Id",
                         "required": True,
                         "type": "string"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A populated Result Set",
                         "schema": {
                             "$ref": "#/definitions/ResultSet"
                         }

@@ -11,9 +11,9 @@
         "http"
     ],
     "paths": {
-        "/VIO/submissions/GetHazardWarnings": {
+        "/VIO/submissions/GetSamplesReceived": {
             "get": {
-                "summary": "Gets a collection of VIOHazardWarning from LIMS for the specified submission.",
+                "summary": "Gets a collection of VIOSampleReceived from LIMS for the specified submission.",
                 "produces": [
                     "application/json"
                 ],
@@ -28,11 +28,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "A collection of VIOHazardWarning",
+                        "description": "A collection of VIOSampleReceived",
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/VIOHazardWarning"
+                                "$ref": "#/definitions/VIOSampleReceived"
                             }
                         }
                     },
@@ -44,31 +44,15 @@
         }
     },
     "definitions": {
-        "VIOHazardWarning": {
+        "VIOSampleReceived": {
             "properties": {
-                "SubmissionId": {
+                "SampleType": {
                     "type": "string",
-                    "description": "Gets the Submission Id"
+                    "description": "Gets the Sample Type"
                 },
-                "Test": {
-                    "type": "string",
-                    "description": "Gets the Test"
-                },
-                "Result": {
-                    "type": "string",
-                    "description": "Gets the Result"
-                },
-                "Species": {
-                    "type": "string",
-                    "description": "Gets the Species"
-                },
-                "ResultDate": {
-                    "type": "string",
-                    "description": "Gets the ResultDate"
-                },
-                "Comment": {
-                    "type": "string",
-                    "description": "Gets the Comment"
+                "Quantity": {
+                    "type": "number",
+                    "description": "Gets the Quantity"
                 }
             }
         },

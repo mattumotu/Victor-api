@@ -13,7 +13,7 @@
     "paths": {
         "/VIO/submissions/GetSubmissionWorkInProgress": {
             "get": {
-                "summary": "",
+                "summary": "Gets a collection of VIOSubmissionWorkInProgress from LIMS for the specified submission.",
                 "produces": [
                     "application/json"
                 ],
@@ -21,14 +21,14 @@
                     {
                         "in": "query",
                         "name": "submissionId",
-                        "description": "",
+                        "description": "The Submission Id",
                         "required": True,
                         "type": "string"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A collection of VIOSubmissionWorkInProgress",
                         "schema": {
                             "type": "array",
                             "items": {

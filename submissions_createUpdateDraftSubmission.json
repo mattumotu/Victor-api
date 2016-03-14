@@ -13,7 +13,7 @@
     "paths": {
         "/submissions/createUpdateDraftSubmission": {
             "post": {
-                "summary": "",
+                "summary": "Create a new, or update an existing Draft Submission on LIMS populated by the supplied Draft Submission.",
                 "produces": [
                     "application/json"
                 ],
@@ -21,14 +21,14 @@
                     {
                         "in": "query",
                         "name": "draftSubmission",
-                        "description": "",
+                        "description": "The Draft Submission to create or update",
                         "required": True,
                         "type": "DraftSubmission"
                     },
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A new or updated Draft Submission",
                         "schema": {
                             "$ref": "#/definitions/DraftSubmission"
                         }
@@ -45,223 +45,223 @@
             "properties": {
                 "submissionId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the submission Id"
                 },
                 "draftSubmissionId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the draft submission Id"
                 },
                 "submissionType": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the submission type (e.g. DIAG or MONI)"
                 },
                 "pvsId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the PVS Id"
                 },
                 "clientName": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the client name"
                 },
                 "clientFarm": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the client farm name"
                 },
                 "clientAddress": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the client address"
                 },
                 "clientPostcode": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the client postcode"
                 },
                 "clientCounty": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the client county"
                 },
                 "clientSubCounty": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the client sub county"
                 },
                 "clientCPHH": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the client CPHH"
                 },
                 "clinician": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the clinician's name"
                 },
                 "resultsReadyConfirmationEmail": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the email address to send results ready confirmation email"
                 },
                 "resultsReadyConfirmationPhoneNumber": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the phone number to send results ready confirmation text"
                 },
                 "areAnimalsAtFarmAddress": {
                     "type": "boolean",
-                    "description": ""
+                    "description": "Gets or sets a flag that indicates whether the animal are at the farm address"
                 },
                 "animalCPHH": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal CPHH"
                 },
                 "animalFarm": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal farm"
                 },
                 "animalAddress": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal address"
                 },
                 "animalPostcode": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal postcode"
                 },
                 "animalCounty": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal county"
                 },
                 "animalSubCounty": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal sub county"
                 },
                 "animalSpeciesId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal species id"
                 },
                 "animalBreedId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal breed id"
                 },
                 "animals": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/SubmissionAnimal"
                     },
-                    "description": ""
+                    "description": "Gets or sets a collection of animals on this submission"
                 },
                 "animalSexId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal sex id"
                 },
                 "animalAgeId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal age id"
                 },
                 "animalOrganicId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal organic id"
                 },
                 "animalPurposeId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal purpose id"
                 },
                 "animalHousingId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal housing id"
                 },
                 "dateSamplesTaken": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the date the samples were taken"
                 },
                 "previousSubmissionId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the previous submission id"
                 },
                 "previousSubmissionContactByPhone": {
                     "type": "boolean",
-                    "description": ""
+                    "description": "Gets or sets a flag that indicates whether APHA was previously notified about this case by a phone call"
                 },
                 "previousSubmissionContactByAphaFarmVisit": {
                     "type": "boolean",
-                    "description": ""
+                    "description": "Gets or sets a flag that indicates whether APHA was previously notified about this case during a farm visit"
                 },
                 "herdTotal": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the total number of animals"
                 },
                 "herdBreedingTotal": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the total number of breeding animals"
                 },
                 "herdAffectedTotal": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the number of animals in the affected group"
                 },
                 "herdAffectedIncDead": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the number of animals in the affected group including dead"
                 },
                 "herdDeadTotal": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the number of dead animals"
                 },
                 "clinicalSign1Id": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the first clinical sign id"
                 },
                 "clinicalSign2Id": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the second clinical sign id"
                 },
                 "clinicalSign3Id": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the third clinical sign id"
                 },
                 "clinicalSignDurationId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the clinical duration id"
                 },
                 "clinicalHistory": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the clinical history"
                 },
                 "products": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/DraftSubmissionProduct"
                     },
-                    "description": ""
+                    "description": "Gets or sets a collection of products on this submission"
                 },
                 "samplesWillSendToSeparateAddresses": {
                     "type": "boolean",
-                    "description": ""
+                    "description": "Gets or sets a flag that indicates whether submitted samples will be sent directly to the appropriate lab"
                 },
                 "canUseSurveillance": {
                     "type": "boolean",
-                    "description": ""
+                    "description": "Gets or sets a flag that indicates whether this submission can be used for anonymous surveillance reasons"
                 },
                 "submittedDate": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the date this submission was submitted"
                 },
                 "submittedUser": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the user (name/id?) who submitted this submission"
                 },
                 "validationErrors": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": ""
+                    "description": "Gets or sets a collection of validation error on failure"
                 },
                 "errorMessages": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": ""
+                    "description": "Gets or sets a collection of error messages on failure"
                 },
                 "unusualCase": {
                     "type": "boolean",
-                    "description": ""
+                    "description": "Gets or sets a flag that indicates whether the PVS considers this to be an unusual case"
                 },
                 "animalAddressLatLng": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the animal address latitude and longitude"
                 },
                 "linkedFirstOfPairSubmissionId": {
                     "type": "string",
@@ -289,37 +289,64 @@
             "properties": {
                 "productId": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the product id"
                 },
                 "productType": {
                     "type": "string",
-                    "description": ""
+                    "description": "Gets or sets the product type"
                 },
                 "sampleTypes": {
-                    "type": "string",
-                    "description": ""
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DraftProductSampleType"
+                    },
+                    "description": "Gets or sets the sample types for this product"
                 },
                 "options": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/definitions/DraftProductOption"
                     },
-                    "description": ""
+                    "description": "Gets or sets the list of options for this product"
                 },
                 "animalSamples": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/SubmissionSample"
                     },
-                    "description": ""
+                    "description": "Gets or sets the animal samples to be tested by this product"
                 },
                 "isFOP": {
                     "type": "boolean",
-                    "description": "Gets or sets a value to indicate whether the product is first of pair"
+                    "description": "Gets or sets a value indicating whether the product is first of pair"
                 },
                 "isSOP": {
                     "type": "boolean",
-                    "description": "Gets or sets a value to indicate whether the product is second of pair"
+                    "description": "Gets or sets a value indicating whether the product is second of pair"
+                }
+            }
+        },
+        "DraftProductSampleType": {
+            "properties": {
+                "packageProductId": {
+                    "type": "string",
+                    "description": "Gets or sets the package product Id"
+                },
+                "sampleType": {
+                    "type": "string",
+                    "description": "Gets or sets the sample type"
+                }
+            }
+        },
+        "DraftProductOption": {
+            "properties": {
+                "packageProductId": {
+                    "type": "string",
+                    "description": "Gets or sets the package product Id"
+                },
+                "option": {
+                    "type": "string",
+                    "description": "Gets or sets the csv option codes"
                 }
             }
         },
@@ -333,17 +360,21 @@
                     "type": "string",
                     "description": "Gets the animal name"
                 },
+                "packageProductId": {
+                    "type": "string",
+                    "description": "Gets or sets the package product Id"
+                },
                 "sampleId": {
                     "type": "string",
                     "description": "Gets the sample Id"
                 },
                 "poolGroup": {
                     "type": "string",
-                    "description": "Gets the optional pool group"
+                    "description": "Gets the pool group (optional)"
                 },
                 "sampleType": {
                     "type": "string",
-                    "description": "Gets the optional sample type"
+                    "description": "Gets the type of this sample (optional)"
                 }
             }
         },

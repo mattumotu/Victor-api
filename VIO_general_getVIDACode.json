@@ -35,14 +35,14 @@
                     {
                         "in": "query",
                         "name": "diagreached",
-                        "description": "Optional filter diagreached",
+                        "description": "Optional filter diagnosis reached",
                         "required": True,
                         "type": "string"
                     },
                     {
                         "in": "query",
                         "name": "vidacode",
-                        "description": "Optional filter vidacode",
+                        "description": "Optional filter vida code",
                         "required": True,
                         "type": "string"
                     },
